@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Изменить каталог{% endblock %}
+
+{% block body %}
+    <h1>Изменить каталог</h1>
+
+    {{ include('catalog/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_catalog_index') }}">назад</a>
+
+    {{ include('catalog/_delete_form.html.twig') }}
+{% endblock %}

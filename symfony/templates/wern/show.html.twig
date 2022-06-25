@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Избранное{% endblock %}
+
+{% block body %}
+    <h1>Избранное</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ wern.id }}</td>
+            </tr>
+            <tr>
+                <th>Пользователь</th>
+                <td>{{ wern.nameuse }}</td>
+            </tr>
+            <tr>
+                <th>Название книги</th>
+                <td>
+                {% for namebook in wern.namebook %}
+                    {{ namebook.namebook }}
+                {% endfor %}
+                <td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_wern_index') }}">назад</a>
+
+    <a href="{{ path('app_wern_edit', {'id': wern.id}) }}">редактировать</a>
+
+    {{ include('wern/_delete_form.html.twig') }}
+{% endblock %}

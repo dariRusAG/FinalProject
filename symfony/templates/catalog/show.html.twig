@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Выбранные данные{% endblock %}
+
+{% block body %}
+    <h1>Выбранные данные</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <tr>
+                <th>ID</th>
+                <td>{{ catalog.id }}</td>
+            </tr>
+            <tr>
+                <th>Название книги</th>
+                <td>{{ catalog.genreLibr }}</td>
+            </tr>
+            <tr>
+                <th>Название библиотеки</th>
+                <td>{{ catalog.nameLibr }}</td>
+            </tr>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_catalog_index') }}">назад</a>
+
+    <a href="{{ path('app_catalog_edit', {'id': catalog.id}) }}">редактировать</a>
+
+    {{ include('catalog/_delete_form.html.twig') }}
+{% endblock %}

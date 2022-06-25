@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Список избранного{% endblock %}
+
+{% block body %}
+    <h1>Список избранного</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Пользователь</th>
+                <th>Название книги</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for wern in werns %}
+            <tr>
+                <td>{{ wern.id }}</td>
+                <td>{{ wern.nameuse }}</td>
+                <td>
+                    {% for namebook in wern.namebook %}
+                        {{ namebook.namebook }}
+                    {% endfor %}
+                </td>
+                <td>
+                    <a href="{{ path('app_wern_show', {'id': wern.id}) }}">показать</a>
+                    <a href="{{ path('app_wern_edit', {'id': wern.id}) }}">редактировать</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">нет записей</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_wern_new') }}">Добавить</a>
+{% endblock %}

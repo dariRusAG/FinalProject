@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Добавить запись{% endblock %}
+
+{% block body %}
+    <h1>Добавить запись</h1>
+
+    {{ include('wern/_form.html.twig') }}
+
+    <a href="{{ path('app_wern_index') }}">назад</a>
+{% endblock %}

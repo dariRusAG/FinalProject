@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Библиотеки{% endblock %}
+
+{% block body %}
+    <h1>Библиотеки</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название библиотеки</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for library in libraries %}
+            <tr>
+                <td>{{ library.id }}</td>
+                <td>{{ library.nameLibrary }}</td>
+                <td>
+                    <a href="{{ path('app_library_show', {'id': library.id}) }}">show</a>
+                    <a href="{{ path('app_library_edit', {'id': library.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">нет записей</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_library_new') }}">Добавить</a>
+{% endblock %}

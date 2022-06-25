@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Пользователи{% endblock %}
+
+{% block body %}
+    <h1>Учет</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ userread.id }}</td>
+            </tr>
+            <tr>
+                <th>Фамилия</th>
+                <td>{{ userread.family }}</td>
+            </tr>
+            <tr>
+                <th>Имя</th>
+                <td>{{ userread.name }}</td>
+            </tr>
+            <tr>
+                <th>Возраст</th>
+                <td>{{ userread.age }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_userread_index') }}">назад</a>
+
+    <a href="{{ path('app_userread_edit', {'id': userread.id}) }}">изменить</a>
+
+    {{ include('userread/_delete_form.html.twig') }}
+{% endblock %}

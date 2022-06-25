@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Новая запись{% endblock %}
+
+{% block body %}
+    <h1>Новая запись</h1>
+
+    {{ include('catalog/_form.html.twig') }}
+
+    <a href="{{ path('app_catalog_index') }}">назад</a>
+{% endblock %}

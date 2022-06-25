@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+
+</head>
+<body>
+
+<a href="/">Главная</a>
+{% if app.request.get('_route') != 'app_login' and app.request.get('_route') != 'app_register' %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <br>
+        <a href="/userread">Пользователи</a>
+        <a href="/books">Книги</a>
+        <a href="/wern">Книги пользователя</a>
+        <a href="/catalog">Список книг библиотек</a>
+        <a href="/library">Библиотеки</a>
+        <br>
+        <a href="/pictures">Картинки</a>
+        <br>
+        <a href="/logout">Выйти</a><br>
+    {% else %}
+        <br>
+        <a href="/login">Войти</a>
+        <a href="/register">Зарегистрироваться</a><br>
+    {% endif %}
+{% endif %}
+
+{% block body %}{% endblock %}
+</body>
+
+</html>

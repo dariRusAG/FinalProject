@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Книги{% endblock %}
+
+{% block body %}
+    <h1>Книги</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Жанр</th>
+                <th>Название</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for book in books %}
+            <tr>
+                <td>{{ book.id }}</td>
+                <td>{{ book.genreBook }}</td>
+                <td>{{ book.nameBook }}</td>
+                <td>
+                    <a href="{{ path('app_books_show', {'id': book.id}) }}">показать</a>
+                    <a href="{{ path('app_books_edit', {'id': book.id}) }}">редактировать</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">записей нет</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_books_new') }}">Добавить</a>
+{% endblock %}

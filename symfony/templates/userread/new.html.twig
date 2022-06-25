@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Новая запись{% endblock %}
+
+{% block body %}
+    <h1>Создать новую запись</h1>
+
+    {{ include('userread/_form.html.twig') }}
+
+    <a href="{{ path('app_userread_index') }}">назад</a>
+{% endblock %}

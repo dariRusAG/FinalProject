@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Новая библиотека{% endblock %}
+
+{% block body %}
+    <h1>Новая библиотека</h1>
+
+    {{ include('library/_form.html.twig') }}
+
+    <a href="{{ path('app_library_index') }}">назад</a>
+{% endblock %}

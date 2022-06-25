@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Бибилотека{% endblock %}
+
+{% block body %}
+    <h1>Библиотека</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ library.id }}</td>
+            </tr>
+            <tr>
+                <th>Название библиотеки</th>
+                <td>{{ library.nameLibrary }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_library_index') }}">назад</a>
+
+    <a href="{{ path('app_library_edit', {'id': library.id}) }}">редактировать</a>
+
+    {{ include('library/_delete_form.html.twig') }}
+{% endblock %}

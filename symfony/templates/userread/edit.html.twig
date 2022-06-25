@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Изменить данные{% endblock %}
+
+{% block body %}
+    <h1>Изменить данные</h1>
+
+    {{ include('userread/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_userread_index') }}">назад</a>
+
+    {{ include('userread/_delete_form.html.twig') }}
+{% endblock %}
