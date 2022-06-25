@@ -35,11 +35,6 @@ class Books
     private $catalogs;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Wer::class, mappedBy="namebookuse")
-     */
-    private $wers;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Wern::class, mappedBy="namebook")
      */
     private $werns;
@@ -47,7 +42,6 @@ class Books
     public function __construct()
     {
         $this->catalogs = new ArrayCollection();
-        $this->wers = new ArrayCollection();
         $this->werns = new ArrayCollection();
     }
 
@@ -105,33 +99,6 @@ class Books
             if ($catalog->getGenreLibr() === $this) {
                 $catalog->setGenreLibr(null);
             }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Wer>
-     */
-    public function getWers(): Collection
-    {
-        return $this->wers;
-    }
-
-    public function addWer(Wer $wer): self
-    {
-        if (!$this->wers->contains($wer)) {
-            $this->wers[] = $wer;
-            $wer->addNamebookuse($this);
-        }
-
-        return $this;
-    }
-
-    public function removeWer(Wer $wer): self
-    {
-        if ($this->wers->removeElement($wer)) {
-            $wer->removeNamebookuse($this);
         }
 
         return $this;
